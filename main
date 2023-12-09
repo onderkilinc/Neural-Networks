@@ -1,0 +1,18 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler # to normalise the data from sklearn.datasets import load_wine
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import plot_tree
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_wine
+plt.rcParams['figure.dpi'] = 200
+
+(X,y) = load_wine(return_X_y = True, as_frame = True)
+Xy = pd.concat([X, y], axis=1)
+(n, p) = X.shape # number of examples and dimension of each example
+K = y.unique().size # number of classes
+print('n=', n, ', p=', p, ', K=', K)
+X.head()
